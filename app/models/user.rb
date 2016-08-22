@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_attached_file :avatar
-  after_create :queue_welcome_email
+  # after_create :queue_welcome_email
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 

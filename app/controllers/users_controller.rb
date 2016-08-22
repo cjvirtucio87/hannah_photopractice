@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  def create    
+  def create
     @user = User.new(user_params.except(:photo_data)) 
     # do |t|
     #   if user_params[:photo_data]
