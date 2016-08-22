@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def queue_welcome_email
-  	User.delay.send_welcome_email(id)
+    User.send_welcome_email(id)
+  	# User.delay(run_at: 5.seconds.from_now).send_welcome_email(id)
   end
 
   def self.send_welcome_email(user_id)

@@ -38,15 +38,15 @@ Rails.application.configure do
       :secret_access_key => Rails.application.secrets.aws_secret_access_key
     }
   }
-  config.action_mailer.smtp_settings = {
-  address: 'smtp.sendgrid.net',
-  port: 587,
-  domain: 'limitless-oasis-32855.herokuapp.com',
-  user_name: Rails.application.secrets.sendgrid_username,
-  password: Rails.application.secrets.sendgrid_password,
-  authentication: 'plain',
-  enable_starttls_auto: true  
-}
+#   config.action_mailer.smtp_settings = {
+#   address: 'smtp.sendgrid.net',
+#   port: 587,
+#   domain: 'limitless-oasis-32855.herokuapp.com',
+#   user_name: Rails.application.secrets.sendgrid_username,
+#   password: Rails.application.secrets.sendgrid_password,
+#   authentication: 'plain',
+#   enable_starttls_auto: true  
+# }
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -113,4 +113,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'limitless-oasis-32855.herokuapp.com',
+    user_name: Rails.application.secrets.sendgrid_username,
+    password: Rails.application.secrets.sendgrid_password,
+    authentication: 'plain',
+    enable_starttls_auto: true  
+  }
 end
