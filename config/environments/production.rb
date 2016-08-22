@@ -9,7 +9,7 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
 
   config.paperclip_defaults = {
 
@@ -117,10 +117,11 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port: 587,
-    domain: 'limitless-oasis-32855.herokuapp.com',
+    domain: 'heroku.com',
     user_name: Rails.application.secrets.sendgrid_username,
     password: Rails.application.secrets.sendgrid_password,
     authentication: 'plain',
     enable_starttls_auto: true  
   }
+  config.action_mailer.default_url_options = { host: 'limitless-oasis-32855.herokuapp.com' }
 end
